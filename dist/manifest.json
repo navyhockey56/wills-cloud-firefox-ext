@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "name": "Will's Cloud",
+  "version": "1.0",
+  "description": "Access to your Cloud",
+  "icons": {
+    "48": "favicon.ico"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["actions/identify-video-link.js", "actions/upload-item.js"]
+    },
+    {
+      "matches": ["*://*.instagram.com/*"],
+      "js": ["actions/remove-instagram-blocks.js"]
+    }
+  ],
+  "commands": {
+    "save-video": {
+      "suggested_key": { "default": "Ctrl+Shift+U" },
+      "description": "Send the video of the current webpage to upload"
+    }
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "storage",
+    "https://cloud.willdengler.com/*"
+  ]
+}

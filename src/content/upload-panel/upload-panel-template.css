@@ -1,0 +1,26 @@
+.wills-cloud-upload-panel {
+  position: absolute;
+  left: 25vw;
+  z-index: 9999999;
+  margin-top: 2em;
+}
+
+.wills-cloud-upload-panel-content-div {
+  border: 1px solid black;
+  background-color: grey;
+  padding: 1em;
+  width: 50vw;
+}
+
+.wills-cloud-upload-panel-label {
+  display: flex;
+}
+
+.wills-cloud-upload-panel-input {
+  min-height: 2rem;
+  padding-left: 0.5rem;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  display: block;
+  width: 97%;
+}

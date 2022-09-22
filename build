@@ -1,0 +1,7 @@
+#!/bin/bash
+npm run clean
+npm run background
+
+npm run actions:upload-item
+npm run actions:remove-instagram-blocks
+npm run actions:identify-video-link
