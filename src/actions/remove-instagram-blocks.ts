@@ -4,21 +4,27 @@
  * so that the underlying images can be clicked on.
 */
 
-const removeElements = (elements: Element[]) => {
-  elements.forEach((element) => element.remove());
-}
+import { RemoveContentBackgroundWorker } from "./remove-content-background-worker";
 
-const removeBlockers = () => {
-  const imageBlockers = Array.from(document.getElementsByClassName('_aagw'));
-  removeElements(imageBlockers);
+new RemoveContentBackgroundWorker({
+  classNames: ['_aagw', '_aakl', '_aakh']
+}).start();
 
-  const videoBlockers1 = Array.from(document.getElementsByClassName('_aakl'));
-  removeElements(videoBlockers1);
+// const removeElements = (elements: Element[]) => {
+//   elements.forEach((element) => element.remove());
+// }
 
-  const videoBlockers2 = Array.from(document.getElementsByClassName('_aakh'));
-  removeElements(videoBlockers2);
+// const removeBlockers = () => {
+//   const imageBlockers = Array.from(document.getElementsByClassName('_aagw'));
+//   removeElements(imageBlockers);
 
-  setTimeout(removeBlockers, 1000);
-}
+//   const videoBlockers1 = Array.from(document.getElementsByClassName('_aakl'));
+//   removeElements(videoBlockers1);
 
-removeBlockers();
+//   const videoBlockers2 = Array.from(document.getElementsByClassName('_aakh'));
+//   removeElements(videoBlockers2);
+
+//   setTimeout(removeBlockers, 1000);
+// }
+
+// removeBlockers();

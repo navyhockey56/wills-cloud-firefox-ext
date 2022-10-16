@@ -14,8 +14,9 @@ BROWSER.contextMenus.onClicked.addListener(async (info: any, tab: any) : Promise
   if (info.menuItemId !== CONTEXT_MENU_ID_UPLOAD_MEDIA) return;
 
   const directory = info.mediaType == 'image' ? 'pictures/' : 'videos/';
+  const cookies = await actionManager.extractCookies(tab);
 
-  await actionManager.uploadItem(tab, info.srcUrl, directory);
+  await actionManager.uploadItem(tab, info.srcUrl, directory, cookies);
 });
 
 
@@ -33,7 +34,9 @@ const onCommand_saveVideo = async (command : string) : Promise<void> =>  {
 
   const currentTab = await getCurrentTab();
   const link = await actionManager.getVideoUrl(currentTab);
-  await actionManager.uploadItem(currentTab, link, 'videos/');
+  const cookies = await actionManager.extractCookies(currentTab);
+
+  await actionManager.uploadItem(currentTab, link, 'videos/', cookies);
 }
 
 BROWSER.commands.onCommand.addListener(onCommand_saveVideo);

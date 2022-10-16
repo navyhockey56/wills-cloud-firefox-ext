@@ -7,6 +7,8 @@
     "actions:upload-item": "BUNDLE_TYPE=actions.upload-item NODE_ENV=production webpack",
     "actions:identify-video-link": "BUNDLE_TYPE=actions.identify-video-link NODE_ENV=production webpack",
     "actions:remove-instagram-blocks": "BUNDLE_TYPE=actions.remove-instagram-blocks NODE_ENV=production webpack",
+    "actions:force-enable-context-menus": "BUNDLE_TYPE=actions.force-enable-context-menus NODE_ENV=production webpack",
+    "actions:extract-cookies": "BUNDLE_TYPE=actions.extract-cookies NODE_ENV=production webpack",
     "clean": "rm -rf dist/ && mkdir dist/ && cp extension/* dist/"
   },
   "author": "Will Dengler",

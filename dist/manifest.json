@@ -9,11 +9,19 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["actions/identify-video-link.js", "actions/upload-item.js"]
+      "js": [
+        "actions/identify-video-link.js",
+        "actions/upload-item.js",
+        "actions/extract-cookies.js"
+      ]
     },
     {
       "matches": ["*://*.instagram.com/*"],
       "js": ["actions/remove-instagram-blocks.js"]
+    },
+    {
+      "matches": ["*://*.onlyfans.com/*"],
+      "js": ["actions/force-enable-context-menus.js"]
     }
   ],
   "commands": {

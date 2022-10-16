@@ -4,4 +4,6 @@ npm run background
 
 npm run actions:upload-item
 npm run actions:remove-instagram-blocks
+npm run actions:force-enable-context-menus
 npm run actions:identify-video-link
+npm run actions:extract-cookies

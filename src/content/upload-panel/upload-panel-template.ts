@@ -7,6 +7,7 @@ interface WillsCloudUploadPanelArgs {
   dom: VerbosityDom;
   source: string;
   defaultFileName?: string;
+  cookies: string;
 }
 
 const USERNAME_FIELD : string = 'Username';
@@ -19,6 +20,7 @@ export class UploadPanelTemplate implements VerbosityTemplate<HTMLElement> {
 
   private dom!: VerbosityDom;
   private source! : string;
+  private cookies! : string;
   private defaultFileName : string | null;
   private inputMap! : Map<string, UploadPanelFieldTemplate>;
 
@@ -30,6 +32,7 @@ export class UploadPanelTemplate implements VerbosityTemplate<HTMLElement> {
   constructor(args : WillsCloudUploadPanelArgs) {
     this.dom = args.dom;
     this.source = args.source;
+    this.cookies = args.cookies;
     this.defaultFileName = args.defaultFileName;
     this.inputMap = new Map();
     this.sessionService = new SessionService();
@@ -125,7 +128,8 @@ export class UploadPanelTemplate implements VerbosityTemplate<HTMLElement> {
 
     await client.upload(this.sessionToken, {
       file_name: this.inputMap.get(FILE_NAME_FIELD).getInputValue(),
-      download_link: this.inputMap.get(LINK_FIELD).getInputValue()
+      download_link: this.inputMap.get(LINK_FIELD).getInputValue(),
+      cookies: this.cookies
     });
 
     this.dom.removeTemplate(this);

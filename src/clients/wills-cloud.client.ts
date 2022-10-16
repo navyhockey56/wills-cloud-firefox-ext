@@ -6,6 +6,7 @@ export interface WillsCloudLoginRequest {
 export interface WillsCloudUploadRequest {
   file_name: string;
   download_link: string;
+  cookies: string;
 }
 
 export class WillsCloudClient {

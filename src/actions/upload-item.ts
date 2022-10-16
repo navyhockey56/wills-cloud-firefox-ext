@@ -10,7 +10,8 @@ const addUploadPanel = (request : any, _sender : any, _responder : any) => {
   dom.appendTemplateToElement(document.body, new UploadPanelTemplate({
     source: request.link,
     defaultFileName: request.defaultFileName,
-    dom: dom
+    dom: dom,
+    cookies: request.cookies
   }));
 }
 
